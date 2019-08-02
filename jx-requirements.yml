@@ -1,17 +1,22 @@
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  project: ""
+  clusterName: dcanadillas-testboot
+  environmentGitOwner: dcanadillas-kube
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: emea-sa-demo
   provider: gke
-  zone: ""
-gitops: true
+  zone: europe-west1-c
 environments:
 - key: dev
 - key: staging
 - key: production
+gitops: true
 ingress:
-  domain: ""
+  domain: 34.76.11.185.nip.io
   externalDNS: false
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
@@ -21,13 +26,13 @@ secretStorage: vault
 storage:
   logs:
     enabled: true
-    url: ""
+    url: gs://dcanadillas-testboot-logs-8f4a3cb4-6d00-464a-a472-015f4
   reports:
     enabled: true
-    url: ""
+    url: gs://dcanadillas-testboot-reports-d8944985-afde-4fa4-8cef-dc
   repository:
     enabled: true
-    url: ""
+    url: gs://dcanadillas-testboot-repository-25994d70-ff0d-4a1c-9213
 versionStream:
   ref: master
   url: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git
